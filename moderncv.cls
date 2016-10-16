@@ -252,14 +252,16 @@
 
 % adds a social link to one's personal information (optional)
 % usage: \social[<optional type>][<optional url>]{<account name>}
-% where <optional type> should be either "linkedin", "twitter" or "github"
+% where <optional type> should be either "linkedin", "twitter", "github" or
+% stackoverflow
 \collectionnew{socials}
 \NewDocumentCommand{\social}{O{}O{}m}{%
   \ifthenelse{\equal{#2}{}}%
     {%
-      \ifthenelse{\equal{#1}{linkedin}}{\collectionadd[linkedin]{socials}{\protect\httplink[#3]{www.linkedin.com/in/#3}}}{}%
-      \ifthenelse{\equal{#1}{twitter}} {\collectionadd[twitter]{socials} {\protect\httplink[#3]{www.twitter.com/#3}}}    {}%
-      \ifthenelse{\equal{#1}{github}}  {\collectionadd[github]{socials}  {\protect\httplink[#3]{www.github.com/#3}}}     {}%
+      \ifthenelse{\equal{#1}{linkedin}}     {\collectionadd[linkedin]{socials}     {\protect\httplink[#3]{www.linkedin.com/in/#3}}}        {}%
+      \ifthenelse{\equal{#1}{twitter}}      {\collectionadd[twitter]{socials}      {\protect\httplink[#3]{www.twitter.com/#3}}}            {}%
+      \ifthenelse{\equal{#1}{github}}       {\collectionadd[github]{socials}       {\protect\httplink[#3]{www.github.com/#3}}}             {}%
+      \ifthenelse{\equal{#1}{stackoverflow}}{\collectionadd[stackoverflow]{socials}{\protect\httplink[#3]{www.stackoverflow.com/users/#3}}}{}%
     }
     {\collectionadd[#1]{socials}{\protect\httplink[#3]{#2}}}}
 
@@ -277,28 +279,29 @@
 % symbols
 %--------
 % itemize labels (the struts were added to correct inter-item spacing (works for single line items, until a solution is found for multi-line ones...)
-\newcommand*{\labelitemi}          {\strut\textcolor{color1}{\large\rmfamily\textbullet}}% the \rmfamily is required to force Latin Modern fonts when using sans serif, as OMS/lmss/m/n is not defined and gets substituted by OMS/cmsy/m/n
-\newcommand*{\labelitemii}         {\strut\textcolor{color1}{\large\bfseries-}}
-\newcommand*{\labelitemiii}        {\strut\textcolor{color1}{\rmfamily\textperiodcentered}}% alternative: \textasteriskcentered; the \rmfamily is required to force Latin Modern fonts when using sans serif, as OMS/lmss/m/n is not defined and gets substituted by OMS/cmsy/m/n
-\newcommand*{\labelitemiv}         {\labelitemiii}
+\newcommand*{\labelitemi}               {\strut\textcolor{color1}{\large\rmfamily\textbullet}}% the \rmfamily is required to force Latin Modern fonts when using sans serif, as OMS/lmss/m/n is not defined and gets substituted by OMS/cmsy/m/n
+\newcommand*{\labelitemii}              {\strut\textcolor{color1}{\large\bfseries-}}
+\newcommand*{\labelitemiii}             {\strut\textcolor{color1}{\rmfamily\textperiodcentered}}% alternative: \textasteriskcentered; the \rmfamily is required to force Latin Modern fonts when using sans serif, as OMS/lmss/m/n is not defined and gets substituted by OMS/cmsy/m/n
+\newcommand*{\labelitemiv}              {\labelitemiii}
 
 % enumerate labels
-\renewcommand{\theenumi}           {\@arabic\c@enumi}
-\renewcommand{\theenumii}          {\@alph\c@enumii}
-\renewcommand{\theenumiii}         {\@roman\c@enumiii}
-\renewcommand{\theenumiv}          {\@Alph\c@enumiv}
+\renewcommand{\theenumi}                {\@arabic\c@enumi}
+\renewcommand{\theenumii}               {\@alph\c@enumii}
+\renewcommand{\theenumiii}              {\@roman\c@enumiii}
+\renewcommand{\theenumiv}               {\@Alph\c@enumiv}
 
 % other symbols
-\newcommand*{\listitemsymbol}      {\labelitemi~}
-\newcommand*{\addresssymbol}       {}
-\newcommand*{\mobilephonesymbol}   {}
-\newcommand*{\fixedphonesymbol}    {}
-\newcommand*{\faxphonesymbol}      {}
-\newcommand*{\emailsymbol}         {}
-\newcommand*{\homepagesymbol}      {}
-\newcommand*{\linkedinsocialsymbol}{}
-\newcommand*{\twittersocialsymbol} {}
-\newcommand*{\githubsocialsymbol}  {}
+\newcommand*{\listitemsymbol}           {\labelitemi~}
+\newcommand*{\addresssymbol}            {}
+\newcommand*{\mobilephonesymbol}        {}
+\newcommand*{\fixedphonesymbol}         {}
+\newcommand*{\faxphonesymbol}           {}
+\newcommand*{\emailsymbol}              {}
+\newcommand*{\homepagesymbol}           {}
+\newcommand*{\linkedinsocialsymbol}     {}
+\newcommand*{\twittersocialsymbol}      {}
+\newcommand*{\githubsocialsymbol}       {}
+\newcommand*{\stackoverflowsocialsymbol}{}
 
 % other
 %------
